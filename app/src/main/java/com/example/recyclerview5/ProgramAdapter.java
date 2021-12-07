@@ -1,6 +1,8 @@
 package com.example.recyclerview5;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +42,25 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             deleteData.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    countryDetails.remove(getAdapterPosition());  //These 3 lines inside onclick are for delete mechanism
-                    notifyItemRemoved(getAdapterPosition());
-                    notifyItemRangeChanged(getAdapterPosition(),countryDetails.size());
+                    AlertDialog.Builder alertdialog=new AlertDialog.Builder(context);  //45-65 are for Alertdialog & delete mechanism
+                    alertdialog.setTitle("Delete");
+                    alertdialog.setMessage("Are you sure to delete this country?");
+                    alertdialog.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    alertdialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            countryDetails.remove(getAdapterPosition());  //These 3 lines inside onclick are for delete mechanism
+                            notifyItemRemoved(getAdapterPosition());
+                            notifyItemRangeChanged(getAdapterPosition(),countryDetails.size());
+                        }
+                    });
+                    AlertDialog dialog=alertdialog.create();
+                    dialog.show();
                 }
             });
         }
