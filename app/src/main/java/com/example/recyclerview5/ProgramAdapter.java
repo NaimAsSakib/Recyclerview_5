@@ -44,7 +44,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             deleteData.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog.Builder alertdialog=new AlertDialog.Builder(context);  //45-65 are for Alertdialog & delete mechanism
+                    AlertDialog.Builder alertdialog=new AlertDialog.Builder(context);  //45-65 are for both Alertdialog & delete mechanism
                     alertdialog.setTitle("Delete");
                     alertdialog.setMessage("Are you sure to delete this country?");
                     alertdialog.setPositiveButton("No", new DialogInterface.OnClickListener() {
