@@ -10,6 +10,11 @@ public class CountryPojo {
         this.countryFlags = countryFlags;
     }
 
+    public CountryPojo(String countryName, String countryDescription) {
+        this.countryName = countryName;
+        this.countryDescription = countryDescription;
+    }
+
     public String getCountryName() {
         return countryName;
     }

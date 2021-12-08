@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,16 +26,17 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView cName;
-        TextView cDescription;
         ImageView cFlags;
         CardView cardView;
         ImageView deleteData;
+        TextView cNameTV;
+        TextView cDescriptionTV;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cName = itemView.findViewById(R.id.textView_1);
-            cDescription = itemView.findViewById(R.id.textView_2);
+            cNameTV = itemView.findViewById(R.id.textView_1);
+            cDescriptionTV = itemView.findViewById(R.id.textView_2);
             cFlags = itemView.findViewById(R.id.demoIV);
             cardView = itemView.findViewById(R.id.cardView);
             deleteData = itemView.findViewById(R.id.delete);
@@ -78,8 +80,8 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProgramAdapter.ViewHolder holder, int position) {
         CountryPojo item=countryDetails.get(position);
-        holder.cName.setText(item.getCountryName());
-        holder.cDescription.setText(item.getCountryDescription());
+        holder.cNameTV.setText(item.getCountryName());
+        holder.cDescriptionTV.setText(item.getCountryDescription());
         holder.cFlags.setImageResource(item.getCountryFlags());
     }
 

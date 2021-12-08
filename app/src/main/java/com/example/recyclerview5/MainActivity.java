@@ -4,7 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -13,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter programAdapter;
     RecyclerView.LayoutManager layoutManager;
     private ArrayList<CountryPojo> countryList=new ArrayList<>();
+    Button addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,31 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryPojo("South-Africa","South-Africa is in Africa",R.drawable.south_africa));
         countryList.add(new CountryPojo("Sri-Lanka","Sri-Lanka is an island",R.drawable.sri_lanka));
         countryList.add(new CountryPojo("Turkey","Turkey is a Muslim country",R.drawable.turkey));
+
+        addButton=findViewById(R.id.btnAdd);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog=new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.custom_layout_add_dialog);
+                EditText name=dialog.findViewById(R.id.editText_1);
+                EditText des=dialog.findViewById(R.id.editText_2);
+
+                ImageView add=dialog.findViewById(R.id.ivadd);
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String nameAdd=name.getText().toString();
+                        String desAdd=des.getText().toString();
+                        countryList.add(new CountryPojo(nameAdd,desAdd));
+                        programAdapter.notifyItemInserted(countryList.size()-1);
+                        recyclerView.scrollToPosition(countryList.size()-1);
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
 
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(this);
