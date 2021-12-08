@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText name=dialog.findViewById(R.id.editText_1);
                 EditText des=dialog.findViewById(R.id.editText_2);
 
-                ImageView add=dialog.findViewById(R.id.ivadd);
+                ImageView add=dialog.findViewById(R.id.ivadd); //48-62 lines are for add feature
                 add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
