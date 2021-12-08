@@ -10,7 +10,7 @@ public class CountryPojo {
         this.countryFlags = countryFlags;
     }
 
-    public CountryPojo(String countryName, String countryDescription) {
+    public CountryPojo(String countryName, String countryDescription) {  //Took this constructor for user's add country & desc feature
         this.countryName = countryName;
         this.countryDescription = countryDescription;
     }
