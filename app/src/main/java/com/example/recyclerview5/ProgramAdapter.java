@@ -1,6 +1,7 @@
 package com.example.recyclerview5;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         ImageView deleteData;
         TextView cNameTV;
         TextView cDescriptionTV;
+        ImageView editData;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -39,6 +41,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             cDescriptionTV = itemView.findViewById(R.id.textView_2);
             cFlags = itemView.findViewById(R.id.demoIV);
             cardView = itemView.findViewById(R.id.cardView);
+            editData=itemView.findViewById(R.id.ivEdit);
             deleteData = itemView.findViewById(R.id.delete);
 
             deleteData.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +86,32 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         holder.cNameTV.setText(item.getCountryName());
         holder.cDescriptionTV.setText(item.getCountryDescription());
         holder.cFlags.setImageResource(item.getCountryFlags());
+
+        holder.editData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog=new Dialog(context);
+                dialog.setContentView(R.layout.custom_layout_edit_dialog);
+                EditText updateName=dialog.findViewById(R.id.editText_1);
+                EditText updateDesc=dialog.findViewById(R.id.editText_2);
+                ImageView editDone=dialog.findViewById(R.id.ivUpdate);
+
+                /*name.setText(countryDetails.get(position).countryName);
+                des.setText(countryDetails.get(position).countryDescription);*/
+
+                editDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String nameUpdated=updateName.getText().toString();
+                        String desUpdated=updateDesc.getText().toString();
+                        countryDetails.set(position,new CountryPojo(nameUpdated,desUpdated));
+                        notifyItemChanged(position);
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     @Override

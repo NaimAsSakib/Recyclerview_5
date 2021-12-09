@@ -33,43 +33,35 @@
             android:padding="5dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView_1"
+            <EditText
+                android:id="@+id/editText_1"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:hint="Country"
                 android:text="Name"
                 android:textStyle="bold"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/textView_2"
+            <EditText
+                android:id="@+id/editText_2"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="2"
+                android:hint="Description"
                 android:text="Description"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/ivEdit"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_edit"
-            android:layout_gravity="center">
-
-        </ImageView>
-
-
-        <ImageView
-            android:id="@+id/delete"
+            android:id="@+id/ivUpdate"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/ic_delete" >
+            android:src="@drawable/ic_edit_done">
+
         </ImageView>
 
     </LinearLayout>
