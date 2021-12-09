@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         String nameAdd=name.getText().toString();
                         String desAdd=des.getText().toString();
                         countryList.add(new CountryPojo(nameAdd,desAdd));
-                        programAdapter.notifyItemInserted(countryList.size()-1);
+                        programAdapter.notifyItemInserted(countryList.size()-1);  //last index is size-1
                         recyclerView.scrollToPosition(countryList.size()-1);
                         dialog.dismiss();
                     }
