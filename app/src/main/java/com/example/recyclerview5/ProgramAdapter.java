@@ -87,7 +87,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         holder.cDescriptionTV.setText(item.getCountryDescription());
         holder.cFlags.setImageResource(item.getCountryFlags());
 
-        holder.editData.setOnClickListener(new View.OnClickListener() {
+        holder.editData.setOnClickListener(new View.OnClickListener() {   //90-114 is for edit mechanism
             @Override
             public void onClick(View v) {
                 Dialog dialog=new Dialog(context);
