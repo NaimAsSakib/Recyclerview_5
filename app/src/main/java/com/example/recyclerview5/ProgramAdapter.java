@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,15 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
                     }
                 });
                 dialog.show();
+            }
+        });
+
+        holder.cNameTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,MainActivity2.class);
+                intent.putExtra("passCountryName",item.getCountryName());
+                context.startActivity(intent);
             }
         });
     }
