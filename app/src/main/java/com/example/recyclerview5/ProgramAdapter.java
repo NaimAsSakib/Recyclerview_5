@@ -114,7 +114,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             }
         });
 
-        holder.cNameTV.setOnClickListener(new View.OnClickListener() {
+        holder.cNameTV.setOnClickListener(new View.OnClickListener() {  //117-124 for showing country name on clicking that name
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context,MainActivity2.class);
