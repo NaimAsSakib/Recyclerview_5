@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryPojo("Turkey","Turkey is a Muslim country",R.drawable.turkey));
 
         addButton=findViewById(R.id.btnAdd);
-        addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {   //41-63 are for add feature
             @Override
             public void onClick(View v) {
                 Dialog dialog=new Dialog(MainActivity.this);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText name=dialog.findViewById(R.id.editText_1);
                 EditText des=dialog.findViewById(R.id.editText_2);
 
-                ImageView add=dialog.findViewById(R.id.ivAdd); //48-62 lines are for add feature
+                ImageView add=dialog.findViewById(R.id.ivAdd);
                 add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
