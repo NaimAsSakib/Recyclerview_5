@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -66,5 +67,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         programAdapter=new ProgramAdapter(this,countryList);
         recyclerView.setAdapter(programAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        Toast.makeText(getApplicationContext(),"App has been restarted",Toast.LENGTH_LONG).show();
+        super.onResume();
     }
 }
